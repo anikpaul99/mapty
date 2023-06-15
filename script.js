@@ -72,6 +72,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const yearEl = document.querySelector('.year');
 
 class App {
   #map;
@@ -90,6 +91,9 @@ class App {
     form.addEventListener('submit', this.#newWorkout.bind(this));
     inputType.addEventListener('change', this.#toggleElevationField);
     containerWorkouts.addEventListener('click', this.#moveToPopup.bind(this));
+
+    // update current year
+    this.#updateCurrentYear();
   }
 
   /**
@@ -348,6 +352,11 @@ class App {
   reset() {
     localStorage.removeItem('workouts');
     location.reload();
+  }
+
+  #updateCurrentYear() {
+    const currentYear = new Date().getFullYear();
+    yearEl.textContent = currentYear;
   }
 }
 
