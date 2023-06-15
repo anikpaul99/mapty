@@ -75,6 +75,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 
 class App {
   #map;
+  #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
 
@@ -84,6 +85,8 @@ class App {
     form.addEventListener('submit', this.#newWorkout.bind(this));
 
     inputType.addEventListener('change', this.#toggleElevationField);
+
+    containerWorkouts.addEventListener('click', this.#moveToPopup.bind(this));
   }
 
   /**
@@ -111,7 +114,7 @@ class App {
 
     const coords = [latitude, longitude];
 
-    this.#map = L.map('map').setView(coords, 13);
+    this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution:
@@ -291,6 +294,26 @@ class App {
     `;
 
     form.insertAdjacentHTML('afterend', html);
+  }
+
+  /**
+   * will move map to workout location on click, when clicked on that particular workout from lists
+   * @param {Object} e event
+   * @returns {undefined}
+   */
+  #moveToPopup(e) {
+    const workoutEl = e.target.closest('.workout');
+    if (!workoutEl) return;
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
   }
 }
 
