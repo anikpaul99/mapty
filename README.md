@@ -1,37 +1,59 @@
-# Track all of your workouts in one place with Mapty.
+# Mapty
 
----
+Mapty is a web application designed to help you log and track your workouts on a map. Whether you're running downtown or cycling in the mountains, Mapty lets you record your activities with ease. The app uses geolocation to automatically detect your location and allows you to input workout details like distance, duration, and more. Your workouts are stored locally, enabling you to view your workout history and easily navigate to each workout on the map.
 
-## Demo
+## Table of Contents
 
-Go to [**Mapty app site**](https://mapty-anik.netlify.app/)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Contact](#contact)
 
-### 1. Chose the area on the map where you have performed a workout.
+## Features
 
-![Step 1 screenshot](https://images.tango.us/workflows/9375267c-75ee-441d-a4c1-5213beff9254/steps/f78e4dfb-678d-460e-905a-81d1cfccdac4/88f703e7-32dc-4e63-8058-f0dfc500c8c4.png?crop=focalpoint&fit=crop&fp-x=0.6801&fp-y=0.5000&fp-z=1.0238&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=433&mark-y=9&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTYlMkNGRjc0NDImdz03NDkmaD03NjEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D)
+- **Interactive Map:** The main interface is a map, loaded using the Leaflet library. The map is displayed on the right side of the screen, while a sidebar on the left shows your logged workouts.
+- **Geolocation:** The app automatically detects your current location using the browser's geolocation API.
+- **Workout Logging:** Log your workouts by clicking on the map. A form will appear, allowing you to input details such as type (running or cycling), distance, duration, cadence, or elevation gain.
+  - **Running:** Input `Distance`, `Duration`, and `Cadence`.
+  - **Cycling:** Input `Distance`, `Duration`, and `Elev Gain` (elevation gain).
+- **Workout Statistics:** Once a workout is logged, a summary of the workout is displayed in the sidebar. The map also shows a pin at the workout location, with a popup displaying the workout details.
+- **Persistent State:** The app stores your workouts in local storage, so your data remains intact even after you refresh or close the browser.
+- **Map Navigation:** Click on any workout listed in the sidebar to automatically move the map to that workout location.
 
-### 2. Fill out the form with necessary data about the workout. When finished, hit 'enter'.
+## Screenshots
 
-![Step 2 screenshot](https://images.tango.us/workflows/9375267c-75ee-441d-a4c1-5213beff9254/steps/bcd52b75-cbe7-40bc-bd9a-4ca9d26f2646/601dfe89-caf7-49d1-b06c-351b559f378c.png?crop=focalpoint&fit=crop&fp-x=0.1981&fp-y=0.5338&fp-z=1.1884&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=73&mark-y=42&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTYlMkNGRjc0NDImdz00MTkmaD02OTYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D)
+1. **Screenshot of the Mapty App:**  
+   ![Mapty Screenshot](screenshots/screenshot%20app.png)
 
-### 3. Your workout will be displayed on the position on map.
+## Technologies Used
 
-![Step 3 screenshot](https://images.tango.us/workflows/9375267c-75ee-441d-a4c1-5213beff9254/steps/da1370bf-374b-4ab5-92ed-0b6e37669bef/11fac5af-8f4f-49b7-a065-fe3ab6703050.png?crop=focalpoint&fit=crop&fp-x=0.5155&fp-y=0.4640&fp-z=2.8223&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=560&mark-y=330&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTYlMkNGRjc0NDImdz04MSZoPTEyMCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) Vanilla JavaScript
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) HTML5
+- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) CSS3
+- ![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat&logo=leaflet&logoColor=white) Leaflet
 
-### 4. Also on the sidebar.
+## Getting Started
 
-![Step 4 screenshot](https://images.tango.us/workflows/9375267c-75ee-441d-a4c1-5213beff9254/steps/80091f37-6eeb-43d4-a5e1-d5da3d80adfe/066ede1f-67c8-4c74-ac84-47aa92bf72fe.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=151&mark-y=539&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTQlMkNGRjc0NDImdz04ODkmaD0yMTUmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D)
+### Prerequisites
 
-### 5. Keep track all of your workouts in one place.
+To run this project locally, you'll need a basic understanding of HTML, CSS, and JavaScript. No additional libraries or frameworks are required.
 
-![Step 5 screenshot](https://images.tango.us/workflows/9375267c-75ee-441d-a4c1-5213beff9254/steps/329ee670-928f-4ee8-93bd-41e972b33647/d6539e42-386e-449a-8267-bfcc4ff2f764.png?crop=focalpoint&fit=crop&fp-x=0.6834&fp-y=0.5000&fp-z=1.0238&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=441&mark-y=9&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTYlMkNGRjc0NDImdz03NDEmaD03NjEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D)
+### Installation
 
-<br/>
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/mapty.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd mapty
+   ```
+3. Open the `index.html` file in your preferred browser to start using the application.
 
-### 6. Click on a workout to go to that workout's postion on map.
+## Contact
 
-## ![Alt Text](https://media.giphy.com/media/IVSPl7qbXb7ahIpR6j/giphy.gif)
-
----
-
-My [twitter](https://twitter.com/AnikPaul73)
+- 📧 **Email**: [hello@paulanik.com](mailto:hello@paulanik.com)
+- 🌐 **Portfolio**: [paulanik.com](https://paulanik.com)
+- 💼 **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/anik-paul-dev/)
+- 📝 **Dev.to**: [Dev.to Profile](https://dev.to/anikpaul)
